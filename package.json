@@ -1,0 +1,27 @@
+{
+  "name": "airplane-flight-edu",
+  "version": "0.1.0",
+  "description": "An interactive educational website explaining how airplanes fly with rich visualizations",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8000"
+  },
+  "keywords": [
+    "education",
+    "aerodynamics",
+    "aviation",
+    "physics",
+    "interactive",
+    "visualization",
+    "learning"
+  ],
+  "author": "Learning Project",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/airplane-flight-edu.git"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}

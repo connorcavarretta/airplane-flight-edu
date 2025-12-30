@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive educational resource explaining the physics and principles of how airplanes fly">
+  <meta name="keywords" content="aerodynamics, flight, physics, education, airplanes, lift, drag">
+  <title>Airplane Flight Physics - Interactive Learning</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header and Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <h1 class="site-title">Airplane Flight Physics</h1>
+        <p class="site-tagline">Understanding How Aircraft Fly</p>
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="#introduction" class="nav-link">Introduction</a></li>
+          <li><a href="#bernoulli" class="nav-link">Bernoulli's Principle</a></li>
+          <li><a href="#four-forces" class="nav-link">Four Forces</a></li>
+          <li><a href="#wing-design" class="nav-link">Wing Design</a></li>
+          <li><a href="#control-surfaces" class="nav-link">Control Surfaces</a></li>
+          <li><a href="#flight-phases" class="nav-link">Flight Phases</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content" class="main-content">
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h2 class="hero-title">Discover the Science of Flight</h2>
+        <p class="hero-text">
+          Explore interactive visualizations that bring the physics of airplane flight to life.
+          Learn how wings generate lift, how pilots control aircraft, and the forces that make flight possible.
+        </p>
+        <a href="#introduction" class="cta-button">Start Learning</a>
+      </div>
+    </section>
+
+    <!-- Module 1: Introduction to Flight -->
+    <section id="introduction" class="module" aria-labelledby="intro-heading">
+      <div class="container">
+        <h2 id="intro-heading" class="module-title">Introduction to Flight</h2>
+        <div class="module-content">
+          <p class="intro-text">
+            For centuries, humans dreamed of soaring through the skies like birds. Today, millions of people
+            fly every day, yet the science behind flight remains fascinating and elegant.
+          </p>
+
+          <div class="content-grid">
+            <div class="text-content">
+              <h3>The Science of Flight</h3>
+              <p>
+                Flight isn't magic—it's physics. When you understand how air moves over a wing,
+                how forces balance in midair, and how pilots control their aircraft, the mystery disappears.
+                What remains is something even better: elegant engineering based on fundamental physical laws.
+              </p>
+              <p>
+                This journey begins with a simple but powerful idea discovered centuries ago:
+                <strong>when air speeds up, pressure drops</strong>. This is Bernoulli's Principle,
+                and it's the foundation for understanding how wings generate lift.
+              </p>
+            </div>
+
+            <div class="visualization-container">
+              <canvas id="intro-canvas" width="800" height="400"
+                      aria-label="Preview animation showing the four forces of flight">
+              </canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Module 2: Bernoulli's Principle -->
+    <section id="bernoulli" class="module module-alt" aria-labelledby="bernoulli-heading">
+      <div class="container">
+        <h2 id="bernoulli-heading" class="module-title">Bernoulli's Principle</h2>
+        <div class="module-content">
+          <p class="intro-text">
+            As air speed increases, pressure decreases. This inverse relationship is key to understanding flight.
+          </p>
+
+          <div class="content-grid">
+            <div class="text-content">
+              <h3>What You're Seeing</h3>
+              <p>
+                A <strong>Venturi tube</strong> — a pipe that narrows in the middle then widens.
+                Blue particles show air flowing through:
+              </p>
+              <ul>
+                <li><strong>Entrance:</strong> Normal speed, normal pressure</li>
+                <li><strong>Throat (narrow):</strong> Air speeds up, pressure drops</li>
+                <li><strong>Exit:</strong> Air slows down, pressure returns</li>
+              </ul>
+
+              <h3>The Key Insight</h3>
+              <p>
+                Watch the <strong>pressure bars</strong> below the tube. The middle bar drops because
+                the narrow section forces air to speed up.
+                <strong>Faster air = Lower pressure.</strong>
+              </p>
+
+              <h3>Connection to Flight</h3>
+              <p>
+                Wings use this principle! Air flows faster over the curved top than the flat bottom,
+                creating lower pressure above. The pressure difference generates lift.
+              </p>
+
+              <h3>The Math</h3>
+              <p class="equation">
+                P + ½ρv² + ρgh = constant
+              </p>
+              <p class="caption">
+                As velocity (v) increases, pressure (P) must decrease to keep the sum constant.
+              </p>
+            </div>
+
+            <div class="visualization-container">
+              <canvas id="bernoulli-canvas" width="800" height="400"
+                      aria-label="Interactive demonstration of Bernoulli's principle using a Venturi tube">
+              </canvas>
+              <div class="controls">
+                <div class="control-group">
+                  <label for="airspeed-slider">Air Speed:</label>
+                  <input type="range" id="airspeed-slider" min="10" max="100" value="50"
+                         aria-label="Adjust air speed">
+                  <span id="airspeed-value">50</span> m/s
+                </div>
+              </div>
+
+              <div class="info-box" style="margin-top: 1rem;">
+                <h4>Try the Slider!</h4>
+                <p>
+                  Adjust the air speed and watch:
+                </p>
+                <ul>
+                  <li>Particles speed up/slow down</li>
+                  <li>Velocity arrows grow/shrink</li>
+                  <li>The throat pressure bar drops more at higher speeds</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Module 3: Four Forces of Flight -->
+    <section id="four-forces" class="module" aria-labelledby="forces-heading">
+      <div class="container">
+        <h2 id="forces-heading" class="module-title">The Four Forces of Flight</h2>
+        <div class="module-content">
+          <p class="intro-text">
+            Every aircraft in flight experiences four fundamental forces. Balancing these forces determines how the aircraft moves.
+          </p>
+
+          <div class="content-grid">
+            <div class="text-content">
+              <h3>The Four Forces</h3>
+              <p>
+                <strong class="force-lift">Lift</strong> (green, ↑): Upward force from the wings<br>
+                <strong class="force-weight">Weight</strong> (red, ↓): Downward force from gravity<br>
+                <strong class="force-thrust">Thrust</strong> (blue, →): Forward force from engines<br>
+                <strong class="force-drag">Drag</strong> (orange, ←): Backward force from air resistance
+              </p>
+
+              <h3>Force Balance</h3>
+              <p>
+                <strong>Level Flight:</strong> Lift = Weight, Thrust = Drag<br>
+                <strong>Climbing:</strong> Lift &gt; Weight<br>
+                <strong>Descending:</strong> Weight &gt; Lift<br>
+                <strong>Accelerating:</strong> Thrust &gt; Drag<br>
+                <strong>Decelerating:</strong> Drag &gt; Thrust
+              </p>
+
+              <h3>What You're Seeing</h3>
+              <p>
+                The airplane in the visualization shows all four forces as colored arrows.
+                Longer arrows = stronger forces. Watch the airplane tilt and move based on which forces are stronger.
+              </p>
+
+              <p>
+                The <strong>Flight State</strong> box shows whether the plane is climbing, descending, accelerating, or maintaining level flight.
+              </p>
+            </div>
+
+            <div class="visualization-container">
+              <canvas id="forces-canvas" width="800" height="600"
+                      aria-label="Interactive demonstration of the four forces of flight">
+              </canvas>
+              <div class="controls">
+                <div class="control-group">
+                  <label for="lift-slider">Lift:</label>
+                  <input type="range" id="lift-slider" min="0" max="100" value="50">
+                  <span id="lift-value">50</span>
+                </div>
+                <div class="control-group">
+                  <label for="weight-slider">Weight:</label>
+                  <input type="range" id="weight-slider" min="0" max="100" value="50">
+                  <span id="weight-value">50</span>
+                </div>
+                <div class="control-group">
+                  <label for="thrust-slider">Thrust:</label>
+                  <input type="range" id="thrust-slider" min="0" max="100" value="50">
+                  <span id="thrust-value">50</span>
+                </div>
+                <div class="control-group">
+                  <label for="drag-slider">Drag:</label>
+                  <input type="range" id="drag-slider" min="0" max="100" value="50">
+                  <span id="drag-value">50</span>
+                </div>
+                <button id="reset-forces" class="button">Reset to Level Flight</button>
+              </div>
+
+              <div class="info-box" style="margin-top: 1rem;">
+                <h4>Try This!</h4>
+                <ul>
+                  <li>Increase <strong>lift</strong> &gt; watch plane climb ↑</li>
+                  <li>Increase <strong>thrust</strong> &gt; watch plane accelerate →</li>
+                  <li>Set all forces equal &gt; level flight (balanced)</li>
+                  <li>Make <strong>weight</strong> &gt; lift &gt; plane descends ↓</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Module 4: Wing Design & Airfoils -->
+    <section id="wing-design" class="module module-alt" aria-labelledby="wing-heading">
+      <div class="container">
+        <h2 id="wing-heading" class="module-title">Wing Design & Airfoils</h2>
+        <div class="module-content">
+          <p class="intro-text">
+            The shape of a wing's cross-section (an <strong>airfoil</strong>) determines how efficiently it generates lift.
+          </p>
+
+          <div class="content-grid">
+            <div class="text-content">
+              <h3>What You're Seeing</h3>
+              <p>
+                An airfoil cross-section with flowing streamlines showing how air moves around it.
+                The orange dashed line is the <strong>chord line</strong> (reference for angle measurement).
+              </p>
+
+              <h3>Angle of Attack (α)</h3>
+              <p>
+                The angle between the chord line and the oncoming air (<strong>relative wind</strong>).
+              </p>
+              <p>
+                <strong>Low angle:</strong> Less lift<br>
+                <strong>Medium angle (5-10°):</strong> Optimal lift<br>
+                <strong>High angle (&gt;15°):</strong> <span style="color: #F44336;">STALL</span> - airflow separates, lift drops
+              </p>
+
+              <h3>Airfoil Types</h3>
+              <p>
+                <strong>Cambered:</strong> Curved top, generates lift at 0°<br>
+                <strong>Symmetric:</strong> Same curve top/bottom<br>
+                <strong>Flat Bottom:</strong> Simple design for small planes
+              </p>
+
+              <h3>Coefficients</h3>
+              <p>
+                <strong>CL (Lift Coefficient):</strong> How much lift the airfoil generates<br>
+                <strong>CD (Drag Coefficient):</strong> How much drag (resistance)<br>
+                <strong>L/D Ratio:</strong> Efficiency (higher is better)
+              </p>
+            </div>
+
+            <div class="visualization-container">
+              <canvas id="airfoil-canvas" width="800" height="500"
+                      aria-label="Interactive airfoil and angle of attack demonstration">
+              </canvas>
+              <div class="controls">
+                <div class="control-group">
+                  <label for="angle-slider">Angle of Attack:</label>
+                  <input type="range" id="angle-slider" min="-10" max="25" value="5">
+                  <span id="angle-value">5</span>°
+                </div>
+                <div class="control-group">
+                  <label for="airfoil-select">Airfoil Type:</label>
+                  <select id="airfoil-select">
+                    <option value="cambered">Cambered (Standard)</option>
+                    <option value="symmetric">Symmetric</option>
+                    <option value="flat">Flat Bottom</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="info-box" style="margin-top: 1rem;">
+                <h4>Try This!</h4>
+                <ul>
+                  <li>Set angle to <strong>5°</strong> → watch streamlines bend smoothly</li>
+                  <li>Increase to <strong>15°</strong> → lift maximizes</li>
+                  <li>Go above <strong>15°</strong> → <span style="color: #F44336;">STALL WARNING</span> appears!</li>
+                  <li>Switch airfoil types and see CL/CD change</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Module 5: Control Surfaces -->
+    <section id="control-surfaces" class="module" aria-labelledby="controls-heading">
+      <div class="container">
+        <h2 id="controls-heading" class="module-title">Control Surfaces</h2>
+        <div class="module-content">
+          <p class="intro-text">
+            Pilots control aircraft movement using movable surfaces on the wings and tail.
+            Each surface controls rotation around a different axis.
+          </p>
+
+          <div class="content-grid">
+            <div class="text-content">
+              <h3>What You're Seeing</h3>
+              <p>
+                A top-down view of an airplane. Orange rectangles are <strong>control surfaces</strong> —
+                movable parts that deflect airflow to rotate the aircraft.
+              </p>
+
+              <h3>The Three Axes</h3>
+              <p>
+                <strong class="force-drag">Ailerons (Roll)</strong>: On wing tips, move oppositely. One up, one down = airplane banks left or right.<br>
+                <strong class="force-lift">Elevator (Pitch)</strong>: On horizontal tail. Deflects up/down to raise or lower the nose.<br>
+                <strong class="force-thrust">Rudder (Yaw)</strong>: On vertical tail. Swings the nose left or right.
+              </p>
+
+              <h3>How It Works</h3>
+              <p>
+                When you move a control surface, it changes the airflow over that surface,
+                creating more lift on one side. This creates a <strong>moment</strong> (rotation force)
+                that turns the aircraft around that axis.
+              </p>
+            </div>
+
+            <div class="visualization-container">
+              <canvas id="controls-canvas" width="800" height="600"
+                      aria-label="Interactive demonstration of aircraft control surfaces">
+              </canvas>
+              <div class="controls">
+                <div class="control-group">
+                  <label for="aileron-slider">Ailerons (Roll):</label>
+                  <input type="range" id="aileron-slider" min="-30" max="30" value="0">
+                  <span id="aileron-value">0</span>°
+                </div>
+                <div class="control-group">
+                  <label for="elevator-slider">Elevator (Pitch):</label>
+                  <input type="range" id="elevator-slider" min="-30" max="30" value="0">
+                  <span id="elevator-value">0</span>°
+                </div>
+                <div class="control-group">
+                  <label for="rudder-slider">Rudder (Yaw):</label>
+                  <input type="range" id="rudder-slider" min="-30" max="30" value="0">
+                  <span id="rudder-value">0</span>°
+                </div>
+                <button id="reset-controls" class="button">Reset Position</button>
+              </div>
+
+              <div class="info-box" style="margin-top: 1rem;">
+                <h4>Try This!</h4>
+                <ul>
+                  <li>Move <strong>ailerons</strong> → watch the wings tilt (roll)</li>
+                  <li>Move <strong>elevator</strong> → see pitch angle indicator change</li>
+                  <li>Move <strong>rudder</strong> → airplane rotates (yaw)</li>
+                  <li>Combine all three → coordinated turn!</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Module 6: Flight Phases -->
+    <section id="flight-phases" class="module module-alt" aria-labelledby="phases-heading">
+      <div class="container">
+        <h2 id="phases-heading" class="module-title">Phases of Flight</h2>
+        <div class="module-content">
+          <p class="intro-text">
+            Every flight follows a sequence of phases, each requiring different configurations
+            and management of the four forces.
+          </p>
+
+          <div class="content-grid">
+            <div class="text-content">
+              <h3>What You're Seeing</h3>
+              <p>
+                A side view of an airplane progressing through a complete flight, from takeoff to landing.
+                Watch how the airplane's attitude (nose angle) and altitude change in each phase.
+              </p>
+
+              <h3>The Five Phases</h3>
+              <p>
+                <strong>Takeoff</strong>: High thrust, rotate nose up, lift off<br>
+                <strong>Climb</strong>: Nose up, gaining altitude<br>
+                <strong>Cruise</strong>: Level flight, forces balanced<br>
+                <strong>Descent</strong>: Nose down slightly, losing altitude<br>
+                <strong>Landing</strong>: Final approach, touchdown
+              </p>
+
+              <h3>Force Balance</h3>
+              <p>
+                Each phase requires a different relationship between the four forces.
+                The <strong>Force Balance</strong> indicator shows whether lift equals weight
+                and thrust equals drag for the current phase.
+              </p>
+
+              <h3>How to Use</h3>
+              <p>
+                <strong>Play Animation</strong>: Auto-cycles through all phases<br>
+                <strong>Phase Buttons</strong>: Jump to a specific phase<br>
+                <strong>Pause</strong>: Stop the animation
+              </p>
+            </div>
+
+            <div class="visualization-container">
+              <canvas id="phases-canvas" width="800" height="500"
+                      aria-label="Animated demonstration of flight phases">
+              </canvas>
+              <div class="controls">
+                <button id="play-animation" class="button button-primary">Play Animation</button>
+                <button id="pause-animation" class="button">Pause</button>
+                <div class="phase-selector">
+                  <button class="phase-button" data-phase="takeoff">Takeoff</button>
+                  <button class="phase-button" data-phase="climb">Climb</button>
+                  <button class="phase-button" data-phase="cruise">Cruise</button>
+                  <button class="phase-button" data-phase="descent">Descent</button>
+                  <button class="phase-button" data-phase="landing">Landing</button>
+                </div>
+                <div class="phase-info">
+                  <p>Current Phase: <span id="current-phase">Cruise</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>About This Project</h3>
+          <p>
+            An interactive educational resource for understanding the physics of airplane flight.
+            Built as a learning project with modern web technologies.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h3>Educational Resources</h3>
+          <ul class="footer-links">
+            <li><a href="https://www.grc.nasa.gov/www/k-12/airplane/" target="_blank" rel="noopener">NASA Glenn Research Center</a></li>
+            <li><a href="https://www.faa.gov/regulations_policies/handbooks_manuals/aviation/" target="_blank" rel="noopener">FAA Handbooks</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Technology</h3>
+          <p>Built with HTML5, CSS3, JavaScript, Canvas API, SVG, and Three.js</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Airplane Flight Physics. Educational use only. MIT License.</p>
+        <p>Built with Claude Code</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/visualizations/intro.js"></script>
+  <script src="js/visualizations/bernoulli.js"></script>
+  <script src="js/visualizations/forces.js"></script>
+  <script src="js/visualizations/airfoil.js"></script>
+  <script src="js/visualizations/controls.js"></script>
+  <script src="js/visualizations/phases.js"></script>
+  <script src="js/main.js" type="module"></script>
+  <script src="js/navigation.js"></script>
+</body>
+</html>

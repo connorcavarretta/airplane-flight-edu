@@ -1,0 +1,455 @@
+/* =================================
+   PAGE LOAD ANIMATIONS
+   ================================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Apply fade-in to modules on load */
+.module {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.hero {
+  animation: fadeIn 0.8s ease-out;
+}
+
+
+/* =================================
+   SCROLL ANIMATIONS
+   ================================= */
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+.scroll-indicator {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+
+/* =================================
+   VISUALIZATION ANIMATIONS
+   ================================= */
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+/* =================================
+   PARTICLE EFFECTS
+   ================================= */
+
+@keyframes particle-flow {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(800px);
+    opacity: 0;
+  }
+}
+
+.particle {
+  animation: particle-flow 3s linear infinite;
+}
+
+
+/* =================================
+   FORCE VECTOR ANIMATIONS
+   ================================= */
+
+@keyframes grow-arrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes arrow-pulse {
+  0%, 100% {
+    opacity: 0.8;
+    stroke-width: 2;
+  }
+  50% {
+    opacity: 1;
+    stroke-width: 3;
+  }
+}
+
+
+/* =================================
+   CONTROL SURFACE ANIMATIONS
+   ================================= */
+
+@keyframes deflect-up {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-15deg);
+  }
+}
+
+@keyframes deflect-down {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(15deg);
+  }
+}
+
+@keyframes roll-left {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-30deg);
+  }
+}
+
+@keyframes roll-right {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(30deg);
+  }
+}
+
+
+/* =================================
+   AIRFLOW ANIMATIONS
+   ================================= */
+
+@keyframes streamline-flow {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.streamline {
+  stroke-dasharray: 5, 5;
+  animation: streamline-flow 2s linear infinite;
+}
+
+
+/* =================================
+   LOADING ANIMATIONS
+   ================================= */
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-light) 0%,
+    var(--border-color) 50%,
+    var(--bg-light) 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+
+/* =================================
+   INTERACTIVE FEEDBACK
+   ================================= */
+
+@keyframes button-press {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.button:active {
+  animation: button-press 0.2s ease;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+.error-shake {
+  animation: shake 0.5s ease;
+}
+
+
+/* =================================
+   STALL WARNING ANIMATION
+   ================================= */
+
+@keyframes stall-warning {
+  0%, 100% {
+    background-color: transparent;
+    border-color: var(--border-color);
+  }
+  50% {
+    background-color: rgba(244, 67, 54, 0.1);
+    border-color: var(--weight-color);
+  }
+}
+
+.stall-warning {
+  animation: stall-warning 1s ease-in-out infinite;
+}
+
+
+/* =================================
+   FLIGHT PATH ANIMATIONS
+   ================================= */
+
+@keyframes takeoff {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-50px) rotate(-10deg);
+  }
+  100% {
+    transform: translateY(-150px) rotate(-15deg);
+  }
+}
+
+@keyframes cruise {
+  0%, 100% {
+    transform: translateY(-2px);
+  }
+  50% {
+    transform: translateY(2px);
+  }
+}
+
+@keyframes landing {
+  0% {
+    transform: translateY(-150px) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(-50px) rotate(-2deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+
+/* =================================
+   CLOUD ANIMATIONS
+   ================================= */
+
+@keyframes cloud-drift {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100vw);
+  }
+}
+
+.cloud {
+  animation: cloud-drift 30s linear infinite;
+}
+
+.cloud:nth-child(2) {
+  animation-duration: 40s;
+  animation-delay: 5s;
+}
+
+.cloud:nth-child(3) {
+  animation-duration: 35s;
+  animation-delay: 10s;
+}
+
+
+/* =================================
+   HOVER EFFECTS
+   ================================= */
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--sky-blue);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--sky-blue), 0 0 30px var(--sky-blue);
+  }
+}
+
+.glow-on-hover:hover {
+  animation: glow 1.5s ease-in-out infinite;
+}
+
+
+/* =================================
+   SMOOTH TRANSITIONS
+   ================================= */
+
+.smooth-appear {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.smooth-disappear {
+  animation: fadeIn 0.5s ease-out reverse;
+}
+
+
+/* =================================
+   REDUCED MOTION
+   ================================= */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .particle,
+  .cloud,
+  .streamline {
+    animation: none !important;
+  }
+}
+
+
+/* =================================
+   PERFORMANCE OPTIMIZATIONS
+   ================================= */
+
+/* Use GPU acceleration for better performance */
+.animate-transform {
+  will-change: transform;
+}
+
+.animate-opacity {
+  will-change: opacity;
+}
+
+/* Composite layers for smooth animations */
+canvas,
+.visualization-container {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
